@@ -1,22 +1,96 @@
-<<<<<<< HEAD
-## Getting Started
+변수 선언과 초기화
+=
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+캐멀 스타일이란?
+-
+코드 작성 시 여러 단어를 혼합하여 명명하는 경우, 마치 낙타의 등처럼 대소문자를 섞어 작성하는 스타일이다.  
 
-## Folder Structure
+코드의 가독성 향상을 위해 사용되며, 자바 소스 파일명과 클래스명 & 변수명을 작성할때 관례적으로 사용한다.
 
-The workspace contains two folders by default, where:
+1. 자바 소스 파일명(클래스명)은 대문자로 시작하는 것이 관례
+```java    
+    Week.java
+    TeamMember.java
+    public class Team { }
+```
+1. 변수명은 소문자로 시작하는 것이 관례
+```java
+    int score;
+    int totalScore = 22;
+    char teamRank = 'A';
+```
+변수 선언
+-
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+변수 선언에 필요한 것은 총 세 가지.  
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+>* 타입
+>* 변수명
+>* 세미콜론 (;)
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+세미콜론은 자바에서 모든 실행문 마지막에 필수적으로 달아줘야 한다. ";"을 달아줌으로써 컴파일러가 실행문을 인식하고 코드의 유효성을 판별한 뒤 실행하게 된다.
 
-## Dependency Management
+### 변수 선언은 다음과 같다.
+```java
+byte number;
+// 변수타입 / 변수명
+```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
-=======
-# JavaRecord_Day2
->>>>>>> bc9387e74131493bb6aaa96aa3c47468b8e4b162
+    아직 값을 할당하지 않고 변수타입과 변수명만 지정해 놓은 것을 변수 선언이라고 한다.
+
+    변수 선언은 값의 타입과 이름만 결정하여 메모리에 할당하는 행위이다.
+
+**변수 선언**
+```java
+int number; // 변수 선언 완료
+```
+    전역변수나 static(정적 변수)는 초기화를 시키지 않을 경우 자동으로 0이 할당됨.
+
+**변수 초기화**
+```java
+number = 10;
+// 변수 초기화, 메모리에 값이 지정됨
+```
+    변수에 최초로 값을 할당하는 행위를 '변수 초기화'라고 하고, 이때의 값을 초기값이라고 한다.
+
+    초기값은 아래와 같이 변수를 선언함과 동시에 대입할 수도 있다.
+```java
+byte maxValue = 127;
+// 선언과 동시에 초기화도 완료.
+```
+
+    객체화를 진행하지 않고, 초기화가 안된 변수를 이용해 연산을 할 수는 없다.
+```java
+int a; // 변수 선언만 한 상태.
+int b = a+1;
+// 에러 발생, a의 값을 불러 올 수 없음.
+```
+
+    따라서 위의 코드는 아래와 같이 변경하여야 한다.
+```java
+// 예 1)
+int a;
+a = 10;
+int b = a+1;
+
+// 예 2)
+int a = 10;
+int b = a + 1;
+```
+
+    위의 두 예시 모두 같은 결과를 내지만 예시2의 경우 변수 'a'선언 과정에서 초기화 또한 함께 진행하여 코드가 간결해지고 가독성도 향상되었다.
+
+    지정할 값이 명확하게 정해져 있다면 미리 변수 선언 과정에서 초기화도 함께 진행하여 미리 메모리에 할당하는 것이 좋다.
+
+    최종적으로 이렇게 선언된 변수들은 다양한 연산식에 사용되게 된다.
+```java
+int team = 3;
+int teamMember = 5;
+int totalPlayer = team * teamMember;
+
+System.out.println("이번 경기에 참여하는 팀은 " + team + "팀이고, 총원은 " + totalPlayer + "명 입니다.");
+
+// 실행 결과 :
+// 이번 경기에 참여하는 팀은 3팀이고, 총원은 15명 입니다.
+```
+    -- day 2
